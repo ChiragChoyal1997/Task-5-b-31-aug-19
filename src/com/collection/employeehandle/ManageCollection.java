@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class ManageCollection{
-        Scanner sc = new Scanner(System.in);
+        static Scanner sc = new Scanner(System.in);
     public ArrayList<Employee> addEmployee(ArrayList<Employee> emplist){
                 Employee e = new Employee();
                 System.out.print("Enter EmpNo :- ");
@@ -38,6 +38,12 @@ public class ManageCollection{
         emplist.clear();
     }
     
+    public static int orderOption(){
+                System.out.println("1. Ascending");
+                System.out.println("2. Descending");
+                int opt = sc.nextInt();
+                return opt;
+    }
     public ArrayList<Employee>  removeEmployee(ArrayList<Employee> emplist,HashMap<Integer,Integer> hm){
         System.out.println("Enter Employee Id :- ");
         int empno = sc.nextInt();
@@ -117,23 +123,52 @@ public class ManageCollection{
         
         switch(choice){
             case 1:
-                for (Employee next : emplist) {
-                    System.out.println(next);
+                switch(ManageCollection.orderOption()){
+                    case 1:
+                        for (Employee next : emplist) {
+                            System.out.println(next);
+                        }
+                    case 2:
+                        for(int i=emplist.size()-1;i>=0;i--){
+                            System.out.println(emplist.get(i));
+                        }
+                    default:
+                        System.out.println("Please Select from given options only");
                 }
+                
                 break;
            case 2:
                 emplist.sort(new SortingByName());
-                for (Employee employee : emplist) {
-                    System.out.println(employee);
-               }
+                switch(ManageCollection.orderOption()){
+                    case 1:
+                        for (Employee next : emplist) {
+                            System.out.println(next);
+                        }
+                    case 2:
+                        for(int i=emplist.size()-1;i>=0;i--){
+                            System.out.println(emplist.get(i));
+                        }
+                    default:
+                        System.out.println("Please Select from given options only");
+                }
                 break;
             case 3:
                 emplist.sort(new SortingBySalary());
-                for (Employee employee : emplist) {
-                    System.out.println(employee);
+                switch(ManageCollection.orderOption()){
+                    case 1:
+                        for (Employee next : emplist) {
+                            System.out.println(next);
+                        }
+                    case 2:
+                        for(int i=emplist.size()-1;i>=0;i--){
+                            System.out.println(emplist.get(i));
+                        }
+                    default:
+                        System.out.println("Please Select from given options only");
                 }
                 break;
             default:
+                System.out.println("Please Select from given options only");
                 break;
         }
     }

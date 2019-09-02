@@ -76,7 +76,6 @@ public class PracticeCollection {
             }
             default:
             {
-                System.out.println("Please Select from given options");
                 break;
                             
             }

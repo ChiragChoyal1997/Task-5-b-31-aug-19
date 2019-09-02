@@ -1,6 +1,7 @@
 package com.collection.employeehandle;
 
 import java.util.Comparator;
+import com.collection.employeehandle.Employee;
 
 /**
  *
